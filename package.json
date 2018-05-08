@@ -1,0 +1,33 @@
+{
+  "name": "eslint-import-resolver-nuxt",
+  "version": "0.1.0",
+  "description": "Nodejs and nuxtjs default behavior import resolution plugin for eslint-plugin-import.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leiyaoqiang/eslint-import-resolver-nuxt.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "esnext",
+    "modules",
+    "eslint-plugin-import",
+    "eslint-import-resolver",
+    "nuxt",
+    "nuxtjs"
+  ],
+  "author": "leiyaoqiang (yaoqiang.lei@foxmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leiyaoqiang/eslint-import-resolver-nuxt/issues"
+  },
+  "homepage": "https://github.com/leiyaoqiang/eslint-import-resolver-nuxt#readme",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "resolve": "^1.7.1"
+  }
+}
