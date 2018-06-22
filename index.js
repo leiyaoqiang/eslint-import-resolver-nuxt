@@ -4,8 +4,9 @@ const log = require('debug')('eslint-plugin-import:resolver:nuxt')
 
 exports.interfaceVersion = 2;
 exports.resolve = function (source, file, config = {}) {
-  log('Resolving: ', source, 'from:', file);
-  const realSource = parseSource(source, config.nuxtSrcDir);
+  const trimmedSouce = trimResourceQuery(source)
+  log('Resolving: ', trimmedSouce, 'from:', file);
+  const realSource = parseSource(trimmedSouce, config.nuxtSrcDir);
 
   if (resolve.isCore(realSource)) {
     log('resolved to core');
@@ -20,6 +21,14 @@ exports.resolve = function (source, file, config = {}) {
     log('resolve threw error: ', err);
     return { found: false };
   }
+}
+
+function trimResourceQuery(source) {
+  const questionMarkIndex = source.indexOf('?')
+  if (questionMarkIndex !== -1) {
+    return source.substring(questionMarkIndex)
+  }
+  return source
 }
 
 function parseSource(source, srcDir = '') {
