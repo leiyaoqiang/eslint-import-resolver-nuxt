@@ -1,5 +1,20 @@
 # eslint-import-resolver-nuxt
 
+# Installation
+
+Install ESLint either locally or globally.
+
+```sh
+$ npm install eslint --save-dev
+```
+
+If you installed ESLint globally, you have to install eslint-import-resolver-nuxt globally too. Otherwise, install it locally.
+
+```sh
+$ npm install eslint-import-resolver-nuxt --save-dev
+```
+
+# Configuration
 Default Node-style module resolution plugin for eslint-plugin-import.
 
 Published separately to allow pegging to a specific version in case of breaking changes.
