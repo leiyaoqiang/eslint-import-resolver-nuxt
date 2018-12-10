@@ -48,7 +48,7 @@ function parseSource(source, srcDir = '') {
 function opts(file, config) {
   return Object.assign(
     {
-      extensions: ['.mjs', '.js', '.json']
+      extensions: ['.mjs', '.js', '.json', '.vue']
     },
     config,
     {
