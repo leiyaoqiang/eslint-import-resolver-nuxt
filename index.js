@@ -3,10 +3,10 @@ const path = require('path');
 const log = require('debug')('eslint-plugin-import:resolver:nuxt')
 
 exports.interfaceVersion = 2;
-exports.resolve = function (source, file, config = {}) {
+exports.resolve = function (source, file, config) {
   const trimmedSouce = trimResourceQuery(source)
   log('Resolving: ', trimmedSouce, 'from:', file);
-  const realSource = parseSource(trimmedSouce, config.nuxtSrcDir);
+  const realSource = parseSource(trimmedSouce, config && config.nuxtSrcDir);
 
   if (resolve.isCore(realSource)) {
     log('resolved to core');
@@ -31,8 +31,8 @@ function trimResourceQuery(source) {
   return source
 }
 
-function parseSource(source, srcDir = '') {
-  const nuxtSrcDir = path.join(process.cwd(), srcDir);
+function parseSource(source, srcDir) {
+  const nuxtSrcDir = path.join(process.cwd(), srcDir || '');
   const nuxtAliasRe = /^~(assets|components|pages|plugins|static|store)?\/.+/;
   const nuxtFileAlias = ['~store', '~router'];
 
@@ -50,7 +50,7 @@ function opts(file, config) {
     {
       extensions: ['.mjs', '.js', '.json', '.vue']
     },
-    config,
+    config || {},
     {
       // path.resolve will handle paths relative to CWD
       basedir: path.dirname(path.resolve(file)),
