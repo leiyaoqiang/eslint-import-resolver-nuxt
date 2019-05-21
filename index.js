@@ -33,8 +33,8 @@ function trimResourceQuery(source) {
 
 function parseSource(source, srcDir) {
   const nuxtSrcDir = path.join(process.cwd(), srcDir || '');
-  const nuxtAliasRe = /^~(assets|components|pages|plugins|static|store)?\/.+/;
-  const nuxtFileAlias = ['~store', '~router'];
+  const nuxtAliasRe = /^~|@(assets|components|pages|plugins|static|store)?\/.+/;
+  const nuxtFileAlias = ['~store', '~router', '@store', '@router'];
 
   if (nuxtAliasRe.test(source)) {
     return path.join(nuxtSrcDir, source.slice(1));
