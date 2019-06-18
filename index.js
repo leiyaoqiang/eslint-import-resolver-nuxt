@@ -4,9 +4,9 @@ const log = require('debug')('eslint-plugin-import:resolver:nuxt')
 
 exports.interfaceVersion = 2;
 exports.resolve = function (source, file, config) {
-  const trimmedSouce = trimResourceQuery(source)
-  log('Resolving: ', trimmedSouce, 'from:', file);
-  const realSource = parseSource(trimmedSouce, config && config.nuxtSrcDir, config && config.rootDir);
+  const trimmedSource = trimResourceQuery(source)
+  log('Resolving: ', trimmedSource, 'from:', file);
+  const realSource = parseSource(trimmedSource, config && config.nuxtSrcDir, config && config.rootDir);
 
   if (resolve.isCore(realSource)) {
     log('resolved to core');
