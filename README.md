@@ -25,9 +25,15 @@ Config is passed directly through to resolve as options:
 settings:
   import/resolver:
     nuxt:
-      # The path of nuxt resource directory to relative process.cwd() 
+      # The path of project root
+      # Useful if your project is part of a monorepo with multiple packages
+      # if unset, default is process.cwd()
+      rootDir: nuxt
+
+      # The path of nuxt resource directory to relative rootDir 
       # if unset, default is ''
       nuxtSrcDir: nuxt 
+	  
       extensions:
         # if unset, default is just '.js', but it must be re-added explicitly if set
         - .js
