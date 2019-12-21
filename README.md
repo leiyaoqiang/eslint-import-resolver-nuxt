@@ -35,9 +35,12 @@ settings:
       nuxtSrcDir: nuxt 
 	  
       extensions:
-        # if unset, default is just '.js', but it must be re-added explicitly if set
+        # if unset, default - '.mjs', '.js', '.json' and '.vue', but they must be re-added explicitly if set
         - .js
         - .jsx
+        - .json
+        - .vue
+        - .mjs
         - .es6
         - .coffee
 
