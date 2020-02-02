@@ -32,11 +32,19 @@ function trimResourceQuery(source) {
 }
 
 function parseSource(source, srcDir, rootDir) {
-  const nuxtSrcDir = path.join(rootDir || process.cwd(), srcDir || '');
-  const nuxtAliasRe = /^~|@(assets|components|pages|plugins|static|store)?\/.+/;
+  // directories
+  const nuxtRootDir = path.join(rootDir || process.cwd());
+  const nuxtSrcDir = path.join(nuxtRootDir, srcDir || '');
+
+  // patterns
+  const nuxtRootAliasRe = /^~~|@@\/.+/;
+  const nuxtSourceAliasRe = /^~|@\/.+/;
   const nuxtFileAlias = ['~store', '~router', '@store', '@router'];
 
-  if (nuxtAliasRe.test(source)) {
+  // switch
+  if (nuxtRootAliasRe.test(source)) {
+    return path.join(nuxtRootDir, source.slice(2))
+  } else if (nuxtSourceAliasRe.test(source)) {
     return path.join(nuxtSrcDir, source.slice(1));
   } else if (nuxtFileAlias.indexOf(source) !== -1) {
     return source.slice(1);
