@@ -1,4 +1,5 @@
 # eslint-import-resolver-nuxt
+Nodejs and [nuxtjs(v2.x)](https://zh.nuxtjs.org/guide/directory-structure#%E5%88%AB%E5%90%8D) default behavior import resolution plugin for eslint-plugin-import.
 
 # Installation
 
@@ -30,10 +31,10 @@ settings:
       # if unset, default is process.cwd()
       rootDir: nuxt
 
-      # The path of nuxt resource directory to relative rootDir 
+      # The path of nuxt resource directory to relative rootDir
       # if unset, default is ''
-      nuxtSrcDir: nuxt 
-	  
+      nuxtSrcDir: nuxt
+
       extensions:
         # if unset, default - '.mjs', '.js', '.json' and '.vue', but they must be re-added explicitly if set
         - .js
@@ -58,10 +59,10 @@ settings:
         - project/src  # can add a path segment here that will act like
                        # a source root, for in-project aliasing (i.e.
                        # `import MyStore from 'stores/my-store'`)
-```                       
+```
 or to use the default options:
 
 ```
 settings:
-  import/resolver: nuxt 
+  import/resolver: nuxt
 ```
