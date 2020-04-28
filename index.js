@@ -4,7 +4,7 @@ const log = require('debug')('eslint-plugin-import:resolver:nuxt')
 
 exports.interfaceVersion = 2;
 exports.resolve = function (source, file, config) {
-  const trimmedSource = trimResourceQuery(source)
+  const trimmedSource = trimSource(source)
   log('Resolving: ', trimmedSource, 'from:', file);
   const realSource = parseSource(trimmedSource, config && config.nuxtSrcDir, config && config.rootDir);
 
@@ -23,7 +23,12 @@ exports.resolve = function (source, file, config) {
   }
 }
 
-function trimResourceQuery(source) {
+function trimSource(source) {
+  // taken from eslint-import-resolver-webpack
+  var finalBang = source.lastIndexOf('!')
+  if (finalBang >= 0) {
+    source = source.slice(finalBang + 1)
+  }
   const questionMarkIndex = source.indexOf('?')
   if (questionMarkIndex !== -1) {
     return source.substring(questionMarkIndex)
